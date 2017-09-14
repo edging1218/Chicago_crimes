@@ -33,10 +33,14 @@ if __name__ == '__main__':
     # print 'Time used: {}.'.format((end-start)/60)
 
     start = time()
-    param_xgb = {'xgb_grid': {'learning_rate': [0.01, 0.05, 0.1],
-                         'n_estimators': [200, 300, 400]}}
+    param_xgb = {'xgb_grid': {'learning_rate': [0.1],
+                         'n_estimators': [600],
+			 'gamma': [0.4, 0.45, 0.5, 0.55, 0.6],
+			 'max_depth': [4],
+			 'subsample':[1, 0.9, 0.8, 0.7]}}
     xgb = Model(crimes, 'xgb', param_xgb)
     res = xgb.grid_search_all('neg_log_loss', 3)
+    print res
     xgb.run_all()
     end = time()
     print 'Time used: {}.'.format((end-start)/60)

@@ -88,7 +88,7 @@ class Data:
                 return 'OTHER OFFENSE'
 
         if col == 'Primary Type':
-            self.target_name = counts.index[:top_n]
+            self.target_name = counts.index[:top_n] + ['HOMICIDE']
             self.data[col] = self.data[col].apply(lambda x: primary_type(x))
         elif col == 'Location Description':
             self.data[col] = self.data[col].apply(lambda x: location(x))
@@ -147,7 +147,7 @@ class Data:
         # self.target_name = [x for x in self.data.columns if x[:4] == 'Type']
         self.label_encoder('Location Description')
         self.create_cluster()
-        print self.data.info()
+        # print self.data.info()
         self.split_data()
 
     def split_data(self):
