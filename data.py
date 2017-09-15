@@ -88,7 +88,8 @@ class Data:
                 return 'OTHER OFFENSE'
 
         if col == 'Primary Type':
-            self.target_name = counts.index[:top_n] + ['HOMICIDE']
+            self.target_name = counts.index[:top_n].tolist() 
+            self.target_name.append('HOMICIDE')
             self.data[col] = self.data[col].apply(lambda x: primary_type(x))
         elif col == 'Location Description':
             self.data[col] = self.data[col].apply(lambda x: location(x))
