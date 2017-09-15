@@ -79,17 +79,16 @@ class Model:
         else:
             return self.model.predict(x_test)[:, np.newaxis]
 
-    def run(self, x, y, x_test, y_test, pred_prob=False, params=True):
+    def run(self, x, y, x_test, y_test, params=True):
         """
         Wrap-up function for model create, fit and result report
         """
         self.create_model(params)
         self.fit_model(x, y)
-        pred = self.predict_model(x_test, pred_prob)
-        if pred_prob:
-            self.calc_metrics('logloss', y_test, pred)
-        else:
-            self.calc_metrics('accuracy', y_test, pred)
+        pred = self.predict_model(x_test, True)
+        self.calc_metrics('logloss', y_test, pred)
+        pred = self.predict_model(x_test, False)
+        self.calc_metrics('accuracy', y_test, pred)
         return pred
 
     def run_all(self, pred_prob=False, params=True):
@@ -100,7 +99,6 @@ class Model:
                         self.features.y_train,
                         self.features.x_test,
                         self.features.y_test,
-                        pred_prob,
                         params)
 
     def cross_validation(self, x, y, metrics, k_fold, pred_prob=True, params=True):
@@ -188,10 +186,10 @@ class Model:
         """
         Model evaluation
         """
-        if self.model_type == 'xgb':
-            xgboost.plot_importance(self.model)
-            plt.show()
         if metrics == 'accuracy':
+	    if self.model_type == 'xgb':
+		xgboost.plot_importance(self.model)
+		plt.show()
             print 'accuracy: %f' % (accuracy_score(y_true, y_pred))
         elif metrics == 'logloss':
             y_true_dummies = pd.get_dummies(y_true)
