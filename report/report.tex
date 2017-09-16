@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
- \usepackage[margin=1in]{geometry} 
+\usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb,amsfonts}
 \usepackage{graphicx} 
 \usepackage{tabularx} 
@@ -56,26 +56,62 @@ The dataset has 21 columns:
 \begin{figure}[h]
 \includegraphics[scale=0.5]{figure/total_crime.png}
 \centering
-\caption{The occurrence of crimes in Chicago from 2015 to 2016}
+\caption{Total crimes in Chicago from 2015 to 2016}
 \end{figure}
-  
   
 The whole dataset will be split into train, test set (6, 4) for the model development.
 \subsection{Exploratory Visualization}
+
+
+\begin{figure}[h]
+\includegraphics[scale=0.3]{figure/time.eps}
+\centering
+\caption{a) The monthly crime counts in Chicago from 2015 to 2016. b) Principal component analysis of crimes by month and type. c) Principal component analysis of crimes by hour and type. d) Comparison of crime count between 2015 and 2016.}
+\end{figure}
+
+\begin{figure}[ht]
+\includegraphics[scale=0.4]{figure/pos.eps}
+\centering
+\caption{a) Crime density in Chicago between 2015 and 2016. b) Crimes in Chicago communities.}
+\end{figure}
+
+\subsection{Exploratory Visualization}
+\begin{figure}[ht]
+\includegraphics[scale=0.3]{figure/location.eps}
+\centering
+\caption{a) Relation between location description and crime type. b) Principal component analysis of crimes by community and type. c) Domestic related and unrelated crimes for different crime types in Chicago. d) Clusters of crimes by latitude and longitude using Gaussian Mixture Model.}
+\end{figure}
+
+
+
+\begin{figure}[ht]
+\includegraphics[scale=0.35]{figure/community.eps}
+\centering
+\caption{Standardized crime count in Chicago communities from 2015 to 2016 for different crime types.}
+\end{figure}
+
 \subsection{Algorithms and Techniques}
+To go beyond linearity, the tree-based Gradient Boosting will be used with the package ‘xgboost’. This algorithm combines weak learners into one strong powerful learner. The parameters wait to be tuned are:
+\begin{itemize}
+\item The learning rate (eta)
+\item Min\_child\_weight, which defines the minimum sum of weights of all observations required in a chiral.
+\item Max\_depth, which is the maximum depth of each weaker learner. Deep trees lead to over-fitting more easily.
+\item Gamma, which is defined as the minimum loss reduction required to make a split. Higher value prevents the model from over-fitting.
+\item Subsample, which is the fraction of observations to be randomly samples for each tree. Lower value prevents the algorithm from over-fitting.
+\end{itemize}
+
+
 \subsection{Benchmark Model}
+As a classification problem, the logistic regression model is used as a benchmark model. Logistic regression is a linear model, which could be used for the multi-class categorization. Two different regularization method, Ridge and Lasso will be tested with a range of regularization parameter values.
 \section{Methodology}
 \subsection{Data Preprocessing}
 \subsection{Implementation}
 \subsection{Refinement}
 
- 
 \section{Results}
 \subsection{Model Evaluation}
 \subsection{Justification}
 
-
- 
 \section{Conclusion}
 \subsection{Free Form Visualization}
 \subsection{Reflection}

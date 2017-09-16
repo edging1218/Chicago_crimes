@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  14 SEP 2017 18:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 SEP 2017 15:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -389,24 +389,105 @@ File: figure/total_crime.png Graphic file (type png)
 <use figure/total_crime.png>
 Package pdftex.def Info: figure/total_crime.png used on input line 57.
 (pdftex.def)             Requested size: 285.0643pt x 212.79446pt.
- [3 <./figure/total_crime.png>] [4] (./report.aux) ) 
+Package epstopdf Info: Source file: <figure/time.eps>
+(epstopdf)                    date: 2017-09-15 14:55:35
+(epstopdf)                    size: 744792 bytes
+(epstopdf)             Output file: <figure/time-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-09-15 15:11:03
+(epstopdf)                    size: 342267 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/time-eps-converted-
+to.pdf figure/time.eps>
+(epstopdf)             \includegraphics on input line 67.
+Package epstopdf Info: Output file is already uptodate.
+
+<figure/time-eps-converted-to.pdf, id=15, 1290.8225pt x 850.17625pt>
+File: figure/time-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figure/time-eps-converted-to.pdf>
+Package pdftex.def Info: figure/time-eps-converted-to.pdf used on input line 67
+.
+(pdftex.def)             Requested size: 387.24974pt x 255.05484pt.
+ [3 <./figure/total_crime.png>]
+Package epstopdf Info: Source file: <figure/pos.eps>
+(epstopdf)                    date: 2017-09-14 19:04:48
+(epstopdf)                    size: 120917 bytes
+(epstopdf)             Output file: <figure/pos-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-09-15 14:39:47
+(epstopdf)                    size: 124726 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/pos-eps-converted-t
+o.pdf figure/pos.eps>
+(epstopdf)             \includegraphics on input line 73.
+Package epstopdf Info: Output file is already uptodate.
+
+<figure/pos-eps-converted-to.pdf, id=20, 987.69pt x 460.72125pt>
+File: figure/pos-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figure/pos-eps-converted-to.pdf>
+Package pdftex.def Info: figure/pos-eps-converted-to.pdf used on input line 73.
+
+(pdftex.def)             Requested size: 395.069pt x 184.28523pt.
+Package epstopdf Info: Source file: <figure/location.eps>
+(epstopdf)                    date: 2017-09-15 15:12:11
+(epstopdf)                    size: 116721 bytes
+(epstopdf)             Output file: <figure/location-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-09-15 15:12:20
+(epstopdf)                    size: 107968 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/location-eps-conver
+ted-to.pdf figure/location.eps>
+(epstopdf)             \includegraphics on input line 80.
+Package epstopdf Info: Output file is already uptodate.
+
+<figure/location-eps-converted-to.pdf, id=21, 1381.16pt x 924.45375pt>
+File: figure/location-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figure/location-eps-converted-to.pdf>
+Package pdftex.def Info: figure/location-eps-converted-to.pdf used on input lin
+e 80.
+(pdftex.def)             Requested size: 414.3512pt x 277.33826pt.
+Package epstopdf Info: Source file: <figure/community.eps>
+(epstopdf)                    date: 2017-09-15 14:39:04
+(epstopdf)                    size: 5417253 bytes
+(epstopdf)             Output file: <figure/community-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-09-15 15:11:06
+(epstopdf)                    size: 1854858 bytes
+(epstopdf)             Command: <repstopdf --outfile=figure/community-eps-conve
+rted-to.pdf figure/community.eps>
+(epstopdf)             \includegraphics on input line 88.
+Package epstopdf Info: Output file is already uptodate.
+
+<figure/community-eps-converted-to.pdf, id=22, 1236.62pt x 1364.09625pt>
+File: figure/community-eps-converted-to.pdf Graphic file (type pdf)
+
+<use figure/community-eps-converted-to.pdf>
+Package pdftex.def Info: figure/community-eps-converted-to.pdf used on input li
+ne 88.
+(pdftex.def)             Requested size: 432.82349pt x 477.44084pt.
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [4 <./figure/time-eps-converted-to.pdf>] [5 <./figure/pos-eps-converted-to.pdf
+>] [6 <./figure/location-eps-converted-to.pdf>] [7 <./figure/community-eps-conv
+erted-to.pdf>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3017 strings out of 493089
- 40784 string characters out of 6134842
+ 3038 strings out of 493089
+ 41462 string characters out of 6134842
  109888 words of memory out of 5000000
- 6460 multiletter control sequences out of 15000+600000
+ 6477 multiletter control sequences out of 15000+600000
  8006 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,7n,32p,693b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (4 pages, 78393 bytes).
+</usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb>
+Output written on report.pdf (7 pages, 2500457 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
