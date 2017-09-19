@@ -103,7 +103,7 @@ class Data:
         self.data['Hour'] = self.data.index.hour
         self.data['Weekday'] = self.data.index.weekday
         self.data['Month'] = self.data.index.month
-        self.keep_major_cat('Location Description', 10)
+        # self.keep_major_cat('Location Description', 10)
         self.keep_major_cat('Primary Type', 8)
         print self.data.info()
 

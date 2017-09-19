@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  15 SEP 2017 15:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 SEP 2017 17:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,184 +310,144 @@ Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
  [2]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ˜ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-
-<figure/total_crime.png, id=13, 570.13pt x 425.59pt>
+<figure/total_crime.png, id=14, 570.13pt x 425.59pt>
 File: figure/total_crime.png Graphic file (type png)
 
 <use figure/total_crime.png>
-Package pdftex.def Info: figure/total_crime.png used on input line 57.
+Package pdftex.def Info: figure/total_crime.png used on input line 54.
 (pdftex.def)             Requested size: 285.0643pt x 212.79446pt.
+ [3 <./figure/total_crime.png>]
 Package epstopdf Info: Source file: <figure/time.eps>
-(epstopdf)                    date: 2017-09-15 14:55:35
+(epstopdf)                    date: 2017-09-16 11:52:53
 (epstopdf)                    size: 744792 bytes
 (epstopdf)             Output file: <figure/time-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-15 15:11:03
+(epstopdf)                    date: 2017-09-16 11:52:53
 (epstopdf)                    size: 342267 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/time-eps-converted-
 to.pdf figure/time.eps>
-(epstopdf)             \includegraphics on input line 67.
+(epstopdf)             \includegraphics on input line 89.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/time-eps-converted-to.pdf, id=15, 1290.8225pt x 850.17625pt>
+<figure/time-eps-converted-to.pdf, id=20, 1290.8225pt x 850.17625pt>
 File: figure/time-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/time-eps-converted-to.pdf>
-Package pdftex.def Info: figure/time-eps-converted-to.pdf used on input line 67
+Package pdftex.def Info: figure/time-eps-converted-to.pdf used on input line 89
 .
 (pdftex.def)             Requested size: 387.24974pt x 255.05484pt.
- [3 <./figure/total_crime.png>]
 Package epstopdf Info: Source file: <figure/pos.eps>
 (epstopdf)                    date: 2017-09-14 19:04:48
 (epstopdf)                    size: 120917 bytes
 (epstopdf)             Output file: <figure/pos-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-15 14:39:47
+(epstopdf)                    date: 2017-09-16 11:52:53
 (epstopdf)                    size: 124726 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/pos-eps-converted-t
 o.pdf figure/pos.eps>
-(epstopdf)             \includegraphics on input line 73.
+(epstopdf)             \includegraphics on input line 96.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/pos-eps-converted-to.pdf, id=20, 987.69pt x 460.72125pt>
+<figure/pos-eps-converted-to.pdf, id=21, 987.69pt x 460.72125pt>
 File: figure/pos-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/pos-eps-converted-to.pdf>
-Package pdftex.def Info: figure/pos-eps-converted-to.pdf used on input line 73.
+Package pdftex.def Info: figure/pos-eps-converted-to.pdf used on input line 96.
 
 (pdftex.def)             Requested size: 395.069pt x 184.28523pt.
 Package epstopdf Info: Source file: <figure/location.eps>
-(epstopdf)                    date: 2017-09-15 15:12:11
-(epstopdf)                    size: 116721 bytes
+(epstopdf)                    date: 2017-09-16 15:13:42
+(epstopdf)                    size: 992294 bytes
 (epstopdf)             Output file: <figure/location-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-15 15:12:20
-(epstopdf)                    size: 107968 bytes
+(epstopdf)                    date: 2017-09-16 15:13:49
+(epstopdf)                    size: 464535 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/location-eps-conver
 ted-to.pdf figure/location.eps>
-(epstopdf)             \includegraphics on input line 80.
+(epstopdf)             \includegraphics on input line 104.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/location-eps-converted-to.pdf, id=21, 1381.16pt x 924.45375pt>
+<figure/location-eps-converted-to.pdf, id=22, 1381.16pt x 921.4425pt>
 File: figure/location-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/location-eps-converted-to.pdf>
 Package pdftex.def Info: figure/location-eps-converted-to.pdf used on input lin
-e 80.
-(pdftex.def)             Requested size: 414.3512pt x 277.33826pt.
+e 104.
+(pdftex.def)             Requested size: 414.3512pt x 276.43488pt.
 Package epstopdf Info: Source file: <figure/community.eps>
-(epstopdf)                    date: 2017-09-15 14:39:04
+(epstopdf)                    date: 2017-09-16 11:52:53
 (epstopdf)                    size: 5417253 bytes
 (epstopdf)             Output file: <figure/community-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-15 15:11:06
+(epstopdf)                    date: 2017-09-16 11:52:53
 (epstopdf)                    size: 1854858 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure/community-eps-conve
 rted-to.pdf figure/community.eps>
-(epstopdf)             \includegraphics on input line 88.
+(epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
 
-<figure/community-eps-converted-to.pdf, id=22, 1236.62pt x 1364.09625pt>
+<figure/community-eps-converted-to.pdf, id=23, 1236.62pt x 1364.09625pt>
 File: figure/community-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure/community-eps-converted-to.pdf>
 Package pdftex.def Info: figure/community-eps-converted-to.pdf used on input li
-ne 88.
+ne 111.
 (pdftex.def)             Requested size: 432.82349pt x 477.44084pt.
+ [4] [5 <./figure/time-eps-converted-to.pdf>]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ˜ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no ™ in font cmr12!
- [4 <./figure/time-eps-converted-to.pdf>] [5 <./figure/pos-eps-converted-to.pdf
->] [6 <./figure/location-eps-converted-to.pdf>] [7 <./figure/community-eps-conv
-erted-to.pdf>] (./report.aux) ) 
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ˜ in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no ™ in font cmr12!
+ [6 <./figure/pos-eps-converted-to.pdf>] [7 <./figure/location-eps-converted-to
+.pdf>] <figure/feature_importance.png, id=66, 477.785pt x 279.0425pt>
+File: figure/feature_importance.png Graphic file (type png)
+
+<use figure/feature_importance.png>
+Package pdftex.def Info: figure/feature_importance.png used on input line 187.
+(pdftex.def)             Requested size: 382.22852pt x 223.2343pt.
+ [8] [9] [10 <./figure/community-eps-converted-to.pdf>] [11 <./figure/feature_i
+mportance.png>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3038 strings out of 493089
- 41462 string characters out of 6134842
- 109888 words of memory out of 5000000
- 6477 multiletter control sequences out of 15000+600000
- 8006 words of font info for 31 fonts, out of 8000000 for 9000
+ 3076 strings out of 493089
+ 41966 string characters out of 6134842
+ 113946 words of memory out of 5000000
+ 6506 multiletter control sequences out of 15000+600000
+ 12572 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,7n,32p,693b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ 37i,9n,32p,1492b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb>
-Output written on report.pdf (7 pages, 2500457 bytes).
+c/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmtt12.pfb>
+Output written on report.pdf (11 pages, 2896037 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 116 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
