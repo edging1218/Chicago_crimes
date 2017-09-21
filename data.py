@@ -147,6 +147,7 @@ class Data:
         # self.dummies('Domestic', 'Domestic_')
         # self.target_name = [x for x in self.data.columns if x[:4] == 'Type']
         self.label_encoder('Location Description')
+        self.label_encoder('Primary Type')
         self.create_cluster()
         # print self.data.info()
         self.split_data()

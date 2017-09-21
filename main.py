@@ -49,9 +49,9 @@ if __name__ == '__main__':
                          'n_estimators': 650,
         		 'gamma': 1,
         		 'max_depth': 4,
-        		 'subsample':1}}
+        		 'subsample': 1}}
     xgb = Model(crimes, 'xgb', param_xgb)
-#    xgb.cross_validation_all(3)
+    xgb.cross_validation_all(3)
     xgb.run_all()
     end = time()
     print 'Time used: {}.'.format((end-start)/60)

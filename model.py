@@ -89,6 +89,7 @@ class Model:
         self.calc_metrics('logloss', y_test, pred)
         pred = self.predict_model(x_test, False)
         self.calc_metrics('accuracy', y_test, pred)
+        self.calc_metrics('accuracy_table', y_test, pred)
         return pred
 
     def run_all(self, params=True):
@@ -191,6 +192,8 @@ class Model:
         elif metrics == 'logloss':
             y_true_dummies = pd.get_dummies(y_true)
             print 'logloss: %f' % (log_loss(y_true_dummies, y_pred))
+        elif metrics == 'accuracy_table':
+            print pd.crosstab(y_true, y_pred)
 
     @property
     def get_model_name(self):
