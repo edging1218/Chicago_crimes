@@ -91,7 +91,7 @@ class Model:
         self.calc_metrics('accuracy', y_test, pred)
         return pred
 
-    def run_all(self, pred_prob=False, params=True):
+    def run_all(self, params=True):
         """
         Run function with the original data-set
         """
@@ -101,7 +101,7 @@ class Model:
                         self.features.y_test,
                         params)
 
-    def cross_validation(self, x, y, metrics, k_fold, pred_prob=True, params=True):
+    def cross_validation(self, x, y, k_fold, params=True):
         """
         k-fold cross-validation
         """
@@ -115,22 +115,19 @@ class Model:
                                               y_train,
                                               x_test,
                                               y_test,
-                                              pred_prob,
                                               params),
                                      index=test_index).add_suffix('_' + self.model_type)
             test_pred = test_pred.append(pred_fold)
-        self.calc_metrics(metrics, y, test_pred)
+       # self.calc_metrics(metrics, y, test_pred)
         return test_pred
 
-    def cross_validation_all(self, metrics, k_fold, pred_prob=True, params=True):
+    def cross_validation_all(self, k_fold, params=True):
         """
         k-fold cross-validation with original data-set
         """
         return self.cross_validation(self.features.x_train,
                                      self.features.y_train,
-                                     metrics,
                                      k_fold,
-                                     pred_prob,
                                      params)
 
     def grid_search(self, x, y, metrics, k_fold, params):
@@ -179,7 +176,7 @@ class Model:
             metrics,
             True,
             True)
-        meta_feature_test = self.run_all(True, True)
+        meta_feature_test = self.run_all(True)
         return meta_feature_train, meta_feature_test
 
     def calc_metrics(self, metrics, y_true, y_pred):
@@ -187,9 +184,9 @@ class Model:
         Model evaluation
         """
         if metrics == 'accuracy':
-	    if self.model_type == 'xgb':
-		xgboost.plot_importance(self.model)
-		plt.show()
+	  #  if self.model_type == 'xgb':
+	#	xgboost.plot_importance(self.model)
+	#	plt.show()
             print 'accuracy: %f' % (accuracy_score(y_true, y_pred))
         elif metrics == 'logloss':
             y_true_dummies = pd.get_dummies(y_true)

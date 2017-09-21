@@ -26,12 +26,12 @@ if __name__ == '__main__':
     # logit.run_all('accuracy', 3)
 
 
-    param_logit = {'logit': {'penalty': 'l2', 'C': 1}}
-    logit = Model(crimes, 'logit', param_logit)
-    start = time()
-    logit.run_all()
-    end = time()
-    print 'Time used: {}.'.format((end-start)/60)
+    # param_logit = {'logit': {'penalty': 'l2', 'C': 1}}
+    # logit = Model(crimes, 'logit', param_logit)
+    # start = time()
+    # logit.run_all()
+    # end = time()
+    # print 'Time used: {}.'.format((end-start)/60)
 
     # start = time()
     # param_xgb = {'xgb_grid': {'learning_rate': [0.1],
@@ -51,6 +51,7 @@ if __name__ == '__main__':
         		 'max_depth': 4,
         		 'subsample':1}}
     xgb = Model(crimes, 'xgb', param_xgb)
+#    xgb.cross_validation_all(3)
     xgb.run_all()
     end = time()
     print 'Time used: {}.'.format((end-start)/60)
