@@ -36,11 +36,13 @@ if __name__ == '__main__':
     # start = time()
     # param_xgb = {'xgb_grid': {'learning_rate': [0.1],
     #                      'n_estimators': [650],
-    #     		 'gamma': [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5],
-    #     		 'max_depth': [4, 5],
+    #     		 'gamma': [1],
+    #     		 'max_depth': [4],
     #     		 'subsample':[1]}}
     # xgb = Model(crimes, 'xgb', param_xgb)
     # res = xgb.grid_search_all('neg_log_loss', 3)
+    # print res
+    # res = xgb.grid_search_all('accuracy', 3)
     # print res
     # xgb.run_all()
     # end = time()
@@ -51,7 +53,6 @@ if __name__ == '__main__':
         		 'max_depth': 4,
         		 'subsample': 1}}
     xgb = Model(crimes, 'xgb', param_xgb)
-    xgb.cross_validation_all(3)
     xgb.run_all()
     end = time()
     print 'Time used: {}.'.format((end-start)/60)
