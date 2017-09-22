@@ -19,7 +19,7 @@ Historically, Chicago saw a major rise in violent crime starting in the later 19
 This project is aimed to analyze Chicago crimes in 2015 and 2016 and make prediction of crime category based on time and position information. The raw data from Chicago Data Portal is pre-processed to features (year, month, weekday, hour, location description, domestic, beat, district, ward, community area, latitude and longitude) and target variable (crime type). $20\%$ of the data is randomly sampled and then split into train and test data sets (6:4). After an exploration in the visualization of the crime data, the logistic regression (benchmark model) is applied as a Benchmark model.  At the end, a XGboost model is trained on train data set and hype-parameters are tuned using k-fold cross-validation. The performance of two models are evaluated and compared in the means of log loss function and accuracy on the test data set.
 
 \subsection{Metrics} 
-This project use the accuracy and log loss, from \verb|sklearn.metrics| package, to train models and evaluate the performance. These are two metrics commonly used for classification problems.
+This project use the accuracy, log loss, confusion matrix and classification report, from \verb|sklearn.metrics| package, to train models and evaluate the performance. These are two metrics commonly used for classification problems.
 \begin{itemize}
 \item Log loss, is also known as logistic loss or cross-entropy loss, used in probabilistic classifiers, which is define as 
 \begin{equation}
@@ -31,6 +31,12 @@ where $y_t$ is the true label in $\{0, 1\}$ and $y_p$ is estimated probability t
 \frac{1}{n}\sum_{i=1}^n I(y_i \neq \hat{y_i})
 \end{equation}
 where $y_i$ is the true label and $\hat{y_i}$ is the predicted class label for the $i$th observation. And $I(y_i \neq \hat{y_i})$ is an indicator variable, denoting if the observation $i$ is correctly classified.
+\item Precision is defined as the ratio tp / (tp + fp) where tp is the number of true positives and fp the number of false positives. The precision is intuitively the ability of the classifier not to label as positive a sample that is negative.
+\item Recall is the ratio tp / (tp + fn) where tp is the number of true positives and fn the number of false negatives. The recall is intuitively the ability of the classifier to find all the positive samples.
+\item F-beta score is the weighted harmonic mean of precision and recall.
+\begin{equation}
+F_1 =2 \cdot \frac{precision \cdot recall}{ precision + recall}
+\end{equation}
 \end{itemize}
 
 
@@ -38,6 +44,7 @@ where $y_i$ is the true label and $\hat{y_i}$ is the predicted class label for t
 \section{Analysis}
 \subsection{Data Exploration}
 The data is imported from the Chicago Data Portal website [4], which is a collection of city data related not only to crimes, but also to education, transportation, health, and so on.
+
 The data set has 21 columns:
 \begin{itemize}
 \item ID - Unique identifier for the record.
@@ -78,7 +85,8 @@ The features related to time are 'Year', 'Month' and 'Hour', extracted from the 
 
 \begin{table}
 \caption{Annual crime increase rate from 2015 to 2016 in Chicago} 
-\label{tab:year} 
+\label{
+year} 
 \begin{center}
 \begin{tabular}{l|p{2.5cm}|p{2.5cm}|c}
 \hline
@@ -163,7 +171,15 @@ The hyper-parameters wait to be tuned are:
 
 
 \subsection{Benchmark Model}
-As a classification problem, the logistic regression model is used as a benchmark model. Logistic regression is a linear model, which could be used for the multi-class categorization. Two different regularization method, Ridge and Lasso will be tested with a range of regularization parameter values.
+As a classification problem, the logistic regression model is used as a benchmark model. Logistic regression is a linear model, which could be used for the multi-class categorization. 
+
+The prediction probability for observation $i$ and class $j$ is defined as:
+\begin{equation}
+P(Y_i = j) = \frac{e^{\beta_j \cdot X_i}}{1+\sum_{k=1}^{K-1}e^{\beta_k \cdot X_i} }
+\end{equation}
+where $\beta_k$ is the set of regression coefficient associated with class $k$ and $X_i$ is the set of explanatory variables associated with observation $i$.
+
+Two different regularization method, Ridge and Lasso will be tested with a range of regularization parameter values.
 \begin{itemize}
 \item \verb|penalty|: the norm used in the penalization.
 \item \verb|C|: inverse of regularization strength .
@@ -172,6 +188,7 @@ As a classification problem, the logistic regression model is used as a benchmar
 \section{Methodology}
 \subsection{Data Preprocessing}
 The rows with NA values are dropped. New features, Month, Weekday (from Monday to Sunday) and Hour are created from original feature ‘Date’. The information of ‘IUCR’ and ‘FBI Code’ are excluded, because they contain the crime classification information. Despite the original positional features, new feature named 'Cluster' is created by clustering the latitude and longitude columns, using Gaussian Mixture Algorithm. 
+
 The ‘Primary Type’ of crimes is the target variable for prediction, which has 33 categories in the 2016 crime data. To make the model more robust and efficient, the ‘Primary Type’ is transformed to major crime types (theft, battery, criminal damage, assault, deceptive practice, burglary, narcotics, robbery), and severe crime type (homicide). Figure \ref{fig:count} shows the total count of different crimes in Chicago from 2015 to 2016.
 
 \subsection{Implementation}
@@ -189,13 +206,13 @@ The ‘Primary Type’ of crimes is the target variable for prediction, which ha
 	\end{itemize}
 \end{itemize}
 
-In the data visualization, the principal component analysis imported from \verb|sklearn.decomposition.PCA| is used for constructing biplot to interpret the relationship of hour, month and community to crime types. Before training the model, the location description feature are transformed to labels using \verb|sklearn.preprocessing.LabelEncoder|. New feature, named cluster, is created by Gaussian Mixture Model from \verb|sklearn.mixture.GaussianMixture |. Due to the large amount of data, 20\% of data are randomly selected for model training and testing with \verb|numpy|. Then the data set is randomly split to train set and test set by \verb|sklearn.model_selection.train_test_split|. The logistic regression model is imported from \verb|sklearn.linear_model.LogisticRegression| and XGboost modeli is installed from \verb|xgboost| packages. The parameter tuning and model evaluation use the accuracy and log loss function from \verb|sklearn.metrics.accuracy_score, log_loss|.
+In the data visualization, the principal component analysis is used for constructing biplot to interpret the relationship of hour, month and community to crime types (imported from \verb|sklearn.decomposition.PCA|). Before training the model, the Location Description feature is transformed to labels using \verb|sklearn.preprocessing.LabelEncoder|. New feature, named Cluster, is created by Gaussian Mixture Model based on Latitude and Longitude (\verb|sklearn.mixture.GaussianMixture|). Due to the large amount of data, 20\% of data are randomly selected for model training and testing with \verb|random|. Then the data set is randomly split to train set and test set by \verb|sklearn.model_selection.train_test_split|. The logistic regression model is imported from \verb|sklearn.linear_model.LogisticRegression| and XGboost modeli is installed from \verb|xgboost| packages. The parameter tuning and model evaluation use the accuracy and log loss function, replying on \verb|accuracy_score|, \verb|log_loss|, \verb|confusion_matrix| and \verb|classification_report| from \verb|sklearn.metrics|.
 
 
 
 \subsection{Refinement}
 Hyper parameter is tuned using \verb|sklearn.model_selection.GridSearchCV, KFold|.
-For logistic regression, the \verb|penalty| ('l1' or 'l2') and \verb|C| ($[0.01, 0.1, 1]$) are tuned. The accuracy for each grid is shown in Figure \ref{fig:logit}
+For logistic regression, the \verb|penalty| ('l1' or 'l2') and \verb|C| ($[0.01, 0.1, 1]$) are tuned. The accuracy for each grid is shown in Figure \ref{fig:logit}.
 
 \begin{figure}[ht]
 \includegraphics[scale=0.6]{figure/logit_parameter.png}
@@ -212,6 +229,7 @@ The parameters tuned in XGboost algorithm are as follows:
 \item \verb|gamma: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2]| 
 \item \verb|subsample: [1, 0.95, 0.9, 0.8, 0.7]|
 \end{itemize}
+
 The grid search result for XGboost model is too large to be included in the report (please find in log folder). The parameters corresponding to the optimal model result is: 
 \begin{itemize}
 \item \verb|learning_rate = 0.1|
@@ -224,11 +242,37 @@ The grid search result for XGboost model is too large to be included in the repo
 \section{Results}
 \subsection{Model Evaluation}
 
-\textbf{Another important aspect of this section is discussing robustness. Does your model generalize well to unseen data? Is it sensitive to small changes in the data, or to outliers? Essentially, can we trust this model, and why or why not? You should attempt to answer this question in the most objective way you can, ideally with some well formed tests}
+Two hyper-parameters, \verb|penalty| and \verb|C|, are tuned in the logistic regression, where \verb|penalty| denotes the type of regularization (Ridge or Lasso) and \verb|C| controls the regularization strength. The best parameters are chosen as ridge regression with \verb|C = 0.1|, which yields the optimal accuracy $35.5\%$ of training data. The evaluation performance (log-loss function and accuracy) on the test data-set are 1.667 and $35.8\%$.  
 
-Two hyper-parameters, \verb|penalty| and \verb|C|, are tuned in the logistic regression, where \verb|penalty| denotes the type of regularization (Ridge or Lasso) and \verb|C| controls the regularization strength. The best parameters are chosen as ridge regression with \verb|C = 0.1| and final evaluation performance (log-loss function and accuracy) on the test data-set are 1.667 and $35.8\%$.
-The model performance (log-loss function and accuracy) on the test data set are 1.431 and $44.5\%$.
+Five parameters in XGboost model has been tuned, the optimal model result on training data is $44.6\%$, with \verb|learning_rate = 0.1|, \verb|max_depth = 4|, \verb|gamma = 1|, \verb|n_estimators = 650| and \verb|subsample = 1|. The model performance, log-loss function and accuracy, on the test data set are 1.431 and $44.5\%$, respectively. A more detailed classification report is shown in Table \ref{tab:report}. The crime types that have F1-score smaller than $20\%$ are ASSAULT and CRIMINAL DAMAGE.
+ 
+The accuracy of predictions in train and test set in both mdoels are very close, implying the regularization parameters are well chosen and there is no significant overfitting  in this problem. As explained in the Data Exploration section, neither outliers nor abnormalities are big concerns in this project. 
 
+
+ 
+\begin{table}
+\caption{Classification report}
+\label{tab:report}
+\begin{center}
+\begin{tabular}{l|c|c|c|c}
+\hline
+\bf Crime Type&        \bf Precision&    \bf Recall&  \bf F1-score&    \bf support\\
+\hline
+           ASSAULT&       0.13&      0.00&      0.00     & 2834\\
+           BATTERY&       0.55 &     0.60 &     0.57     & 7838\\
+          BURGLARY&       0.36 &     0.50  &    0.42     & 2116\\
+   CRIMINAL DAMAGE&       0.27  &    0.10   &   0.14     & 4700\\
+DECEPTIVE PRACTICE &      0.41   &   0.34 &  0.37     & 2253\\
+          HOMICIDE  &     1.00    &  0.11  &    0.20      & 117\\
+         NARCOTICS   &    0.55     & 0.70   &   0.62     & 2587\\
+     OTHER OFFENSE    &   0.37  &0.36      &0.36      &9071\\
+             THEFT     &  0.47   &   0.68   &   0.55     & 9290\\
+\hline
+       avg / total      & 0.41    &  0.45    &  0.42    & 40806\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 \subsection{Justification}
 Compared with the accuracy of benchmark model ($35.8\%$), XGboost algorithm obtained an enhanced accuracy rate near $44.5\%$. The final accuracy is four times better than the accuracy of random guess with 9-category output ($11.1\%$). 
 
@@ -239,18 +283,32 @@ Compared with the accuracy of benchmark model ($35.8\%$), XGboost algorithm obta
 \label{fig:xgboost}
 \end{figure}
 
+\begin{figure}[ht]
+\includegraphics[scale=0.4]{figure/confusion_matrix.eps}
+\centering
+\caption{Confusion matrix of crime classification with (b) and without (a) normalization}
+\label{fig:confusion_matrix}
+\end{figure}
+
 \section{Conclusion}
 \subsection{Free Form Visualization}
 The analysis of feature importance from the XGboost algorithm is shown in Figure \ref{fig:xgboost}. For the positional information, latitude and longitude are the most important features. The artificial feature, Cluster, created from these two features also plays certain role. Among all time dependent features, hour is the most related to the crime type in the model. 
+
+The confusion matrix of final prediction on the test set is shown in Figure \ref{fig:confusion_matrix}. The diagonal values in the normalized confusion matrix correspond to the precisions for each category, the value of which are listed in Table \ref{tab:report}. We see consistently that CRIMINAL DAMAGE and ASSAULT are difficult to predict. We also notice that most HOMICIDE crimes are classified as OTHER DEFENSE. We also notice that even though the precision of HOMICIDE equals 1. However, recall is as low as 0.11, leading to a low F1-score.
+
+
+
+
 \subsection{Reflection}
+To sum up, this project is aimed to predict the Chicago crime type based on time and position information. The raw data from Chicago Data Portal is pre-processed to new features and target variable, and then split into train, test data set. After the exploration in the visualization of the crime data, we trained the logistic regression (benchmark model) and XGboost models to obtain finely tuned parameters using k-fold cross-validation on training data set. The performance of two algorithms is evaluated with log loss function and accuracy and finally reported on the test data set. With XGboost algorithm, the optimal accuracy rate is obtained at $44.5\%$, much better than the accuracy of random guess with 9-category output ($11.1\%$). Despite all this, the accuracy still seems to be low, which is probably due to the nature of this problem. For instance, as shown in Figure \ref{fig:community}, Austin has high crime rate for most of the crime types, which indicates the difficulty of successfully categorizing the crime types in that community. 
 
-\textbf{Here you should also discuss the most interesting and most challenging aspects of the project. What was most fun? What was most difficult? Reflecting on these things helps you to further internalize what you learned through this process}
+The most challenging and interesting part is to exploit new feature from original ones. As shown in Figure \ref{fig:xgboost}, Latitude and Longitude are most important features for model prediction. Thus the collection of information from these two features is very promising to further enhance the model performance. The decision tree algorithm divides regions in rectangular shapes by nature. Therefore, in this project, I used Gaussian Mixture Model to cluster the crime positions to create a new feature, in order to provide extra information to the XGboost model. From the Figure \ref{fig:xgboost}, this new feature bears certain importance in the model.
 
-To sum up, this project is aimed to predict the Chicago crime type based on time and position information. The raw data from Chicago Data Portal is pre-processed to new features and target variable, and then split into train, test data set. After the exploration in the visualization of the crime data, we trained the logistic regression (benchmark model) and XGboost models to obtain finely tuned parameters using k-fold cross-validation on training data set. The performance of two algorithms is evaluated with log loss function and accuracy and finally reported on the test data set. With XGboost algorithm, the optimal accuracy rate is obtained at $44.5\%$, much better than the accuracy of random guess with 9-category output ($11.1\%$). 
+
 \subsection{Improvement}
 \begin{itemize}
 \item Increase the data set. For instance, earlier crimes data might be included.
-\item Feature engineering. In this project, 'Cluster' feature is created from the latitude and longitude features, which shows in certain feature importance in the XGboost model. The import of new features, such as a binary feature holiday, may further improve the model performance.
+\item Feature engineering. The import of new features, such as a binary feature holiday, may further improve the model performance.
 \item Parameter tuning. Further examination of hyperparameters in the XGboost model or cluster number in the Gaussian Mixture model may further enhance the model performance. 
 \item Model selection. Other classifiers, such as Random Forest, K Nearest Neighbors, SVM, Neural Network, may be tested. 
 \item Ensemble modeling. The results of different models may be synthesized to improve the accuracy of prediction.
